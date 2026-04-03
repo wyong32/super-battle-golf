@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap');
+@import './wiki-pages.css';
+
+:root {
+  --color-bg: #0c1524;
+  --color-surface: #152238;
+  --color-text: #fffbeb;
+  --color-muted: #c4dbd4;
+  --color-primary: #4ade80;
+  --color-secondary: #38bdf8;
+  --color-accent: #fb7185;
+  --color-sun: #fde047;
+  --color-orange: #fb923c;
+  --font-heading: 'Fredoka', system-ui, sans-serif;
+  --font-body: 'Nunito', system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  line-height: 1.6;
+  position: relative;
+  isolation: isolate;
+}
+
+/* 全站背景图 + 深色渐变罩层，保证正文可读 */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: url('/images/bg.webp') center center / cover no-repeat;
+  background-color: var(--color-bg);
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  /* 罩层偏淡，背景图更透出来；若正文对比不足可略调高 alpha */
+  background: linear-gradient(
+    165deg,
+    rgba(10, 18, 32, 0.58) 0%,
+    rgba(12, 24, 36, 0.5) 35%,
+    rgba(18, 12, 40, 0.48) 100%
+  );
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 0.5em;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+/* 主标题：渐变填充 + 描边感阴影，偏休闲搞怪 */
+h1 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(100deg, #fef9c3 0%, #fde047 18%, #4ade80 45%, #5eead4 72%, #7dd3fc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 3px 0 rgba(15, 23, 42, 0.95)) drop-shadow(0 6px 18px rgba(0, 0, 0, 0.45));
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+ul,
+ol {
+  margin: 0 0 1em;
+  padding-left: 1.25rem;
+}
+
+li {
+  margin-bottom: 0.35em;
+}
+
+a {
+  color: var(--color-secondary);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
