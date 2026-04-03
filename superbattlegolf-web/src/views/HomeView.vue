@@ -104,8 +104,8 @@
           </div>
           <h2 id="adv-heading" class="adv-broadcast__title">Advanced techniques</h2>
           <p class="adv-broadcast__deck">
-            Replay desk — each strip is a monitor feed plus shotcaller notes. Full walkthroughs and screenshots live on each advanced technique page; we will splice in more feeds as
-            articles ship.
+            Replay desk — each strip is a monitor feed plus shotcaller notes. When a topic has a full article, the CTA opens its advanced page; otherwise everything stays on this desk
+            and we link out to the wiki where it helps.
           </p>
         </header>
 
@@ -120,14 +120,22 @@
             <div class="adv-spot__screen-col">
               <span class="adv-spot__tape" aria-hidden="true">{{ topic.home.replayLabel }}</span>
               <div class="adv-spot__bezel">
-                <div class="adv-spot__crt">
+                <div class="adv-spot__crt" :class="{ 'adv-spot__crt--still': !topic.home.embedSrc }">
                   <iframe
+                    v-if="topic.home.embedSrc"
                     :src="topic.home.embedSrc"
                     :title="topic.home.embedTitle"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen
                     referrerpolicy="strict-origin-when-cross-origin"
                     loading="lazy"
+                  />
+                  <img
+                    v-else-if="topic.imageSrc"
+                    :src="topic.imageSrc"
+                    :alt="topic.imageAlt || ''"
+                    loading="lazy"
+                    class="adv-spot__crt-still"
                   />
                 </div>
                 <span class="adv-spot__ch" aria-hidden="true">REC {{ String(advIdx + 1).padStart(2, '0') }}</span>
@@ -141,18 +149,28 @@
               </div>
               <h3 class="adv-spot__heading">
                 <a
+                  v-if="topic.hasDetailPage !== false"
                   :href="appHref(`/advanced/${topic.addressBar}`)"
                   class="adv-spot__heading-link"
                 >{{ topic.title }}</a>
+                <span v-else class="adv-spot__heading-text">{{ topic.title }}</span>
               </h3>
               <ul class="adv-spot__bullets">
                 <li v-for="(line, i) in topic.home.homeBullets" :key="i">{{ line }}</li>
               </ul>
               <a
+                v-if="topic.hasDetailPage !== false"
                 :href="appHref(`/advanced/${topic.addressBar}`)"
                 class="adv-spot__cta"
               >
                 <span class="adv-spot__cta-face">{{ advSpotCtaLabel }} →</span>
+              </a>
+              <a
+                v-else-if="topic.linkOut"
+                :href="appHref(topic.linkOut.href)"
+                class="adv-spot__cta"
+              >
+                <span class="adv-spot__cta-face">{{ topic.linkOut.label }} →</span>
               </a>
             </div>
           </article>
@@ -1031,6 +1049,23 @@ function onSearchSubmit() {
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+.adv-spot__crt-still {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.adv-spot__heading-text {
+  display: inline;
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
 }
 
 .adv-spot__ch {

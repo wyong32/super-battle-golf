@@ -73,25 +73,39 @@ const headPayload = computed(() => {
       title = t.seo?.title || `Super Battle Golf advanced — ${t.title} | ${SITE_NAME}`
       description = t.seo?.description || t.description
       keywords = t.seo?.keywords || keywords
-      ogType = 'article'
-      ogImage = absoluteOgImage(t.imageSrc)
-      jsonLdNodes = [
-        organizationNode(),
-        websiteNode(),
-        webPageNode({
-          path,
-          name: t.title,
-          description,
-        }),
-        articleNode({
-          path,
-          headline: t.title,
-          description,
-          datePublished: `${t.publishDate}T12:00:00.000Z`,
-          dateModified: `${t.publishDate}T12:00:00.000Z`,
-          imageSrc: t.imageSrc,
-        }),
-      ]
+      if (t.hasDetailPage === false) {
+        ogType = 'website'
+        ogImage = absoluteOgImage(t.imageSrc)
+        jsonLdNodes = [
+          organizationNode(),
+          websiteNode(),
+          webPageNode({
+            path,
+            name: t.title,
+            description,
+          }),
+        ]
+      } else {
+        ogType = 'article'
+        ogImage = absoluteOgImage(t.imageSrc)
+        jsonLdNodes = [
+          organizationNode(),
+          websiteNode(),
+          webPageNode({
+            path,
+            name: t.title,
+            description,
+          }),
+          articleNode({
+            path,
+            headline: t.title,
+            description,
+            datePublished: `${t.publishDate}T12:00:00.000Z`,
+            dateModified: `${t.publishDate}T12:00:00.000Z`,
+            imageSrc: t.imageSrc,
+          }),
+        ]
+      }
     } else {
       title = `Super Battle Golf advanced technique — not found | ${SITE_NAME}`
       description =

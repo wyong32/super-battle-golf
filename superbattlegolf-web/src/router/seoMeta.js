@@ -35,9 +35,9 @@ export const SEO = {
   wikiAchievements: {
     title: 'Super Battle Golf Steam Achievements — Full List, Tips & Unlock Guide',
     description:
-      'Steam achievements for Super Battle Golf with short tips and links to deeper guides. Unofficial Windows reference; achievements may change with patches.',
+      'All Super Battle Golf Steam achievements in one list: global unlock % per card, community tips on rare unlocks, and expanded notes inline. Unofficial fan page; verify in-game after patches.',
     keywords:
-      'Super Battle Golf achievements, Steam, 100%, unlocks, hole in one, gauntlet',
+      'Super Battle Golf achievements, Steam, unlock rate, rare achievements, cosmetics, tips, hole in one',
   },
   wikiCosmetics: {
     title: 'Super Battle Golf Cosmetics — Achievement Unlocks, Balls, Clubs & Avatars',

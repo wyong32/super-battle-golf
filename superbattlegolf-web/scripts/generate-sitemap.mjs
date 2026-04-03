@@ -77,6 +77,7 @@ function collectSitemapEntries(siteOrigin) {
   }
 
   for (const t of advancedTips) {
+    if (t.hasDetailPage === false) continue
     entries.push({
       loc: new URL(`/advanced/${t.addressBar}`, `${base}/`).href,
       lastmod: (t.publishDate || today).slice(0, 10),

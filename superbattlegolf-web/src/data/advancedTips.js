@@ -1,28 +1,23 @@
 /**
- * 进阶技巧：/advanced/:slug 详情 + 首页转播条。
- * 顺序：文章基础字段 → home（仅首页：胶带、角标、要点、嵌入）→ detailsHtml（置底）。
- * 首页卡片的配色/弱化由 HomeView 按列表奇偶加 class，不在数据里写。
+ * 进阶技巧：首页「转播条」必选；详情页可选。
+ * - hasDetailPage: true → /advanced/:addressBar 有独立页，sitemap 收录。
+ * - hasDetailPage: false → 暂不开放 /advanced/:slug 长文页；首页转播条仍可用与第一篇相同的 home 字段（含 embed 视频）。
+ *   detailsHtml / seo / image 等照常维护，后续改为 hasDetailPage: true 即可上线详情页。
+ * 顺序：基础字段 → home（胶带、角标、要点、embed）→ detailsHtml（详情页启用时使用）。
  */
 export default [
   {
-    /** 数字 ID */
     id: 1,
-    /** 标题 */
     title: 'Hole in One — Desert 1 (Showdown) & Coast 8 (Gauntlet)',
-    /** 摘要 */
     description:
       'Angles and full-power lines for two holes: Showdown and Gauntlet. Tee spawn matters on Gauntlet.',
-    /** 发布日期 ISO */
     publishDate: '2026-02-21',
-    /** URL 段 */
     addressBar: 'hole-in-one-showdown-gauntlet',
-    /** 封面图 */
+    /** 是否有 /advanced/:slug 详情页 */
+    hasDetailPage: true,
     imageSrc: '/images/guides/guide01.jpg',
-    /** 封面 alt */
     imageAlt: 'Super Battle Golf — hole-in-one on Showdown and Gauntlet',
-    /** 标签 */
     tags: ['Hole in one', 'Achievements', 'Showdown', 'Gauntlet'],
-    /** 搜索引擎 TDK */
     seo: {
       title:
         'Super Battle Golf Hole-in-One Advanced: Showdown Desert 1 & Gauntlet Coast 8',
@@ -31,7 +26,6 @@ export default [
       keywords:
         'Super Battle Golf, hole in one, Showdown, Gauntlet, Desert 1, Coast 8, achievement, Steam, advanced',
     },
-    /** 首页：监视器胶带、桌板角标、要点、嵌入视频 */
     home: {
       replayLabel: 'ACE CAM',
       badge: 'Hole-in-one',
@@ -40,10 +34,9 @@ export default [
         'Coast 8 — Gauntlet: most reliable from the far-left side of both tee boxes; center the flag arrow on the transparent aim bar, use 51°, then 100% — try 52° or 93–100% if your spawn differs.',
         'Hold R to retry before the timer if you whiff a setup (may not count for some achievements — see the full walkthrough).',
       ],
-      embedSrc: 'https://www.youtube-nocookie.com/embed/SgLRJTf6P_Q',
+      embedSrc: 'https://www.youtube-nocookie.com/embed/OOtOCrwXH2s',
       embedTitle: 'Super Battle Golf — official launch trailer (reference pace and course chaos)',
     },
-    /** 详情正文 */
     detailsHtml: `
       <h3>Overview</h3>
       <p>
@@ -128,37 +121,45 @@ export default [
   },
   {
     id: 2,
-    title: 'More advanced techniques',
+    title: 'Safety First (2 Rewards)',
     description:
-      'Roadmap note for deeper tactics — item mind-games, achievement routing, and course-specific risk lines. No step-by-step yet; use the wiki and Getting Started meanwhile.',
-    publishDate: '2026-04-02',
-    addressBar: 'upcoming-advanced-topics',
+      'Disarm an opponent’s landmine in a match without triggering it — hold aim, approach carefully, press interact. Unlocks cosmetic rewards.',
+    publishDate: '2026-04-03',
+    addressBar: 'safety-first-achievement',
+    hasDetailPage: false,
+    /** 无详情页时首页 CTA 跳转（如 wiki 成就锚点） */
+    linkOut: {
+      href: '/wiki/achievements?focus=achievement-safety-first',
+      label: 'Wiki: Safety First',
+    },
     imageSrc: '/images/logo.png',
-    imageAlt: 'Super Battle Golf Guide logo',
-    tags: ['Roadmap'],
+    imageAlt: 'Super Battle Golf Guide — Safety First achievement notes',
+    tags: ['Achievement', 'Safety First', 'Landmine'],
     seo: {
-      title: 'More Super Battle Golf Advanced Techniques — Coming Soon | Super Battle Golf Guide',
+      title: 'Safety First Achievement — Disarm Landmines | Super Battle Golf Guide',
       description:
-        'Placeholder for future advanced technique articles: items, achievements, and course lines. Return to the home Advanced techniques section for the replay desk.',
-      keywords: 'Super Battle Golf, advanced, roadmap, techniques, tips',
+        'How to disarm an opponent landmine in Super Battle Golf: ALT/RMB aim, mine must be above ground, E to disarm. Tips and reward note — full desk on home.',
+      keywords:
+        'Super Battle Golf, Safety First, achievement, landmine, disarm, ALT, RMB, Steam',
     },
     home: {
-      replayLabel: 'NEXT TEE',
-      badge: 'Coming up',
+      replayLabel: 'DEFUSE FEED',
+      badge: 'Achievement',
       homeBullets: [
-        'Future picks: item mind-games, achievement routing, risky cuts on Forest / Desert — we will drop short teasers on the home replay desk and publish full pages here when each topic is ready.',
+        'Requirement: disarm an active landmine placed by an opponent in a match — you must disarm it safely, not detonate it.',
+        'How: hold ALT or RMB (aim) while approaching; the mine must be above ground; press your interact key (E by default). Done right, it disarms instead of exploding.',
+        'Tips: do not sprint at the mine; stay aiming before you interact; buried mines are not interactable; rushing usually blows it up.',
+        'Reward: this achievement unlocks clothing items — see the wiki achievements list and in-game wardrobe after you earn it.',
       ],
-      embedSrc: 'https://www.youtube-nocookie.com/embed/SgLRJTf6P_Q?start=45',
-      embedTitle: 'Super Battle Golf — gameplay excerpt while more advanced topics are in progress',
+      embedSrc: 'https://www.youtube-nocookie.com/embed/L_iZkO9J7e4',
+      embedTitle: 'Super Battle Golf — gameplay reference (items & chaos on course)',
     },
     detailsHtml: `
-      <h3>On the way</h3>
       <p>
-        We are lining up more <strong>advanced techniques</strong> — item mind-games, achievement routing, and risky cuts on Forest / Desert.
-        This page is a stub so the home replay desk and search can link somewhere consistent; check back after major guides ship.
+        Placeholder for the future advanced detail page (same fields as other topics — summary and video stay in <strong>home</strong> on the replay desk until this long-form block is written).
       </p>
       <p>
-        Until then, use the <strong>wiki</strong> lists and <strong>Getting Started</strong> for verified controls and mode flow, and re-test any line you read online in your own Steam build after patches.
+        Use the home CTA to open the wiki achievement entry for the full Steam card text.
       </p>
     `,
   },

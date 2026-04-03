@@ -1,7 +1,30 @@
 <template>
   <div class="page atx">
-    <template v-if="tip">
-      <header class="atx-hero" :class="{ 'atx-hero--stub': isStub }">
+    <template v-if="blockedHomeOnly">
+      <div class="container atx-blocked">
+        <nav class="atx-crumb" aria-label="Breadcrumb">
+          <a :href="appHref('/')">Home</a>
+          <span class="atx-crumb-sep" aria-hidden="true">/</span>
+          <a :href="appHref('/?focus=adv-heading')">Advanced techniques</a>
+          <span class="atx-crumb-sep" aria-hidden="true">/</span>
+          <span class="atx-crumb-here">{{ shortHeadline }}</span>
+        </nav>
+        <h1 class="atx-blocked-title">{{ tip.title }}</h1>
+        <p class="atx-blocked-deck">
+          This feed is only on the home replay desk — there is no separate article page. Use the link below for the matching wiki entry, or go back to
+          <a :href="appHref('/?focus=adv-heading')">Advanced techniques</a>.
+        </p>
+        <div class="atx-blocked-actions">
+          <a v-if="tip.linkOut" :href="appHref(tip.linkOut.href)" class="atx-blocked-btn atx-blocked-btn--primary">{{
+            tip.linkOut.label
+          }}</a>
+          <a :href="appHref('/?focus=adv-heading')" class="atx-blocked-btn">Home: replay desk</a>
+        </div>
+      </div>
+    </template>
+
+    <template v-else-if="tip">
+      <header class="atx-hero">
         <div class="container">
           <nav class="atx-crumb" aria-label="Breadcrumb">
             <a :href="appHref('/')">Home</a>
@@ -91,7 +114,7 @@ const tip = computed(() => {
   return advancedTips.find((t) => t.addressBar === slug) ?? null
 })
 
-const isStub = computed(() => tip.value?.addressBar === 'upcoming-advanced-topics')
+const blockedHomeOnly = computed(() => Boolean(tip.value && tip.value.hasDetailPage === false))
 
 const hasMatchingGuide = computed(() => {
   const bar = tip.value?.addressBar
@@ -147,11 +170,59 @@ function formatDate(iso) {
   border-bottom: 1px solid rgba(148, 163, 184, 0.15);
 }
 
-.atx-hero--stub {
-  background:
-    linear-gradient(180deg, rgba(15, 23, 42, 0.98) 0%, rgba(12, 30, 28, 0.94) 100%),
-    radial-gradient(ellipse 90% 70% at 80% 0%, rgba(45, 212, 191, 0.08), transparent 50%);
-  border-bottom-color: rgba(45, 212, 191, 0.2);
+.atx-blocked {
+  padding: 1.75rem 0 2.5rem;
+  max-width: 40rem;
+}
+
+.atx-blocked-title {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 2.5vw, 1.55rem);
+  font-weight: 900;
+  color: #f8fafc;
+  line-height: 1.2;
+}
+
+.atx-blocked-deck {
+  margin: 0 0 1.25rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #cbd5e1;
+}
+
+.atx-blocked-deck a {
+  color: #7dd3fc;
+  font-weight: 700;
+}
+
+.atx-blocked-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.65rem;
+}
+
+.atx-blocked-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.9rem;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-decoration: none;
+  border: 2px solid rgba(148, 163, 184, 0.35);
+  color: #e2e8f0;
+  background: rgba(15, 23, 42, 0.45);
+}
+
+.atx-blocked-btn:hover {
+  border-color: rgba(253, 224, 71, 0.4);
+}
+
+.atx-blocked-btn--primary {
+  border-color: rgba(253, 224, 71, 0.55);
+  background: rgba(253, 224, 71, 0.12);
+  color: #fef9c3;
 }
 
 .atx-crumb {

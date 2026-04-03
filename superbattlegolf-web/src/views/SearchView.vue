@@ -146,7 +146,10 @@ const searchResults = computed(() => {
       kind: 'Technique',
       title: t.title,
       key: `adv-${t.addressBar}`,
-      to: `/advanced/${t.addressBar}`,
+      to:
+        t.hasDetailPage === false && t.linkOut?.href
+          ? t.linkOut.href
+          : `/advanced/${t.addressBar}`,
     }))
 
   const fromMods = mods
