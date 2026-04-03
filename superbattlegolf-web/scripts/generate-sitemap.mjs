@@ -12,7 +12,7 @@ import guides from '../src/data/guides.js'
 import mods from '../src/data/mods.js'
 
 /**
- * Static routes (legal pages omitted — privacy, terms, copyright).
+ * Static routes (incl. legal: privacy, terms, copyright).
  */
 const BASE_ROUTES = [
   { path: '/', priority: 1.0, changefreq: 'weekly' },
@@ -29,6 +29,9 @@ const BASE_ROUTES = [
   { path: '/search', priority: 0.7, changefreq: 'daily' },
   { path: '/about-us', priority: 0.5, changefreq: 'monthly' },
   { path: '/contact-us', priority: 0.5, changefreq: 'monthly' },
+  { path: '/privacy-policy', priority: 0.35, changefreq: 'yearly' },
+  { path: '/terms-of-service', priority: 0.35, changefreq: 'yearly' },
+  { path: '/copyright', priority: 0.35, changefreq: 'yearly' },
 ]
 
 function escapeXml(text) {

@@ -23,19 +23,16 @@
               <li><a :href="appHref('/mods')">Mods</a></li>
               <li><a :href="appHref('/platforms')">Platforms</a></li>
               <li><a :href="appHref('/support')">Support</a></li>
-              <li>
-                <a href="https://store.steampowered.com/app/4069520/" target="_blank" rel="noopener noreferrer">Steam store</a>
-              </li>
             </ul>
           </div>
           <div class="ftr-col">
             <p class="ftr-heading">Legal</p>
             <ul class="ftr-links">
-              <li><a :href="appHref('/privacy-policy')">Privacy Policy</a></li>
-              <li><a :href="appHref('/terms-of-service')">Terms of Service</a></li>
-              <li><a :href="appHref('/copyright')">Copyright</a></li>
-              <li><a :href="appHref('/about-us')">About Us</a></li>
-              <li><a :href="appHref('/contact-us')">Contact Us</a></li>
+              <li><a :href="appHref('/privacy-policy')" rel="nofollow">Privacy Policy</a></li>
+              <li><a :href="appHref('/terms-of-service')" rel="nofollow">Terms of Service</a></li>
+              <li><a :href="appHref('/copyright')" rel="nofollow">Copyright</a></li>
+              <li><a :href="appHref('/about-us')" rel="nofollow">About Us</a></li>
+              <li><a :href="appHref('/contact-us')" rel="nofollow">Contact Us</a></li>
             </ul>
           </div>
         </div>

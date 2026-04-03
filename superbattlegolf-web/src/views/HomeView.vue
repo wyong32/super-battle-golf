@@ -158,19 +158,23 @@
               <ul class="adv-spot__bullets">
                 <li v-for="(line, i) in topic.home.homeBullets" :key="i">{{ line }}</li>
               </ul>
+              <p class="adv-spot__video-hint" role="note">
+                <span class="adv-spot__video-hint-k">Video</span>
+                <span class="adv-spot__video-hint-main">{{
+                  advIdx % 2 === 1
+                    ? 'Full walkthrough in the player on your right.'
+                    : 'Full walkthrough in the player on your left.'
+                }}</span>
+                <span class="adv-spot__video-hint-sub">
+                  Wide screens: monitor beside these notes; narrow screens: the player may stack above or below.
+                </span>
+              </p>
               <a
                 v-if="topic.hasDetailPage !== false"
                 :href="appHref(`/advanced/${topic.addressBar}`)"
                 class="adv-spot__cta"
               >
                 <span class="adv-spot__cta-face">{{ advSpotCtaLabel }} →</span>
-              </a>
-              <a
-                v-else-if="topic.linkOut"
-                :href="appHref(topic.linkOut.href)"
-                class="adv-spot__cta"
-              >
-                <span class="adv-spot__cta-face">{{ topic.linkOut.label }} →</span>
               </a>
             </div>
           </article>
@@ -1196,6 +1200,51 @@ function onSearchSubmit() {
 .adv-spot--tone1 .adv-spot__bullets li::before {
   background: #6ee7b7;
   border-color: #022c22;
+}
+
+.adv-spot__video-hint {
+  margin: 0.35rem 0 0;
+  padding: 0.55rem 0.65rem;
+  border-radius: 0.4rem;
+  border: 1px dashed rgba(253, 224, 71, 0.35);
+  background: rgba(30, 27, 14, 0.35);
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: rgba(226, 232, 240, 0.9);
+}
+
+.adv-spot--tone1 .adv-spot__video-hint {
+  border-color: rgba(134, 239, 172, 0.35);
+  background: rgba(6, 40, 32, 0.25);
+}
+
+.adv-spot__video-hint-k {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fde047;
+}
+
+.adv-spot--tone1 .adv-spot__video-hint-k {
+  color: #86efac;
+}
+
+.adv-spot__video-hint-main {
+  display: block;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: rgba(226, 232, 240, 0.92);
+}
+
+.adv-spot__video-hint-sub {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.66rem;
+  line-height: 1.45;
+  color: rgba(148, 163, 184, 0.95);
 }
 
 .adv-spot__cta {
