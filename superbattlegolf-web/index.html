@@ -35,6 +35,34 @@
     >
     <meta name="twitter:image" content="https://superbattlegolf.org/images/logo.png">
     <meta name="theme-color" content="#0c1524">
+
+      <!-- 延迟加载第三方脚本 -->
+  <script>
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        // 延迟加载Google Analytics
+        const gtagScript = document.createElement('script');
+        gtagScript.async = true;
+        gtagScript.defer = true;
+        gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-62MR3G33YM';
+        document.head.appendChild(gtagScript);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-62MR3G33YM');
+
+
+        // 延迟加载广告
+        // const adsScript = document.createElement('script');
+        // adsScript.async = true;
+        // adsScript.defer = true;
+        // adsScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4638984121333143';
+        // adsScript.crossOrigin = 'anonymous';
+        // document.head.appendChild(adsScript);
+      }, 3000);
+    });
+  </script>
   </head>
   <body>
     <div id="app"></div>
