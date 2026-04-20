@@ -56,9 +56,16 @@ export const SEO = {
   guides: {
     title: 'Super Battle Golf Guides — Long-Form Articles & Player Walkthroughs',
     description:
-      'Super Battle Golf guides hub for long-form articles when published. For hole-in-one lines, use the tactics block on the home page. Community sources—re-test after updates.',
+      'Super Battle Golf guides hub for long-form articles when published. For hole-in-one lines and replay-desk tactics, open the Advanced techniques hub. Community sources—re-test after updates.',
     keywords:
       'Super Battle Golf guides, walkthroughs, articles, tips, Steam',
+  },
+  advancedTechniques: {
+    title: 'Super Battle Golf Advanced Techniques — Tactics, Replays & Deep Tips',
+    description:
+      'Advanced Super Battle Golf techniques hub: replay-desk clips, shotcaller notes, and links to full walkthroughs. Unofficial fan page — verify tactics in your Steam client after patches.',
+    keywords:
+      'Super Battle Golf advanced, tactics, tips, replay, hole in one, Steam, walkthrough',
   },
   mods: {
     title: 'Super Battle Golf Mods & PC — Steam Workshop, EULA and File Safety Notes',

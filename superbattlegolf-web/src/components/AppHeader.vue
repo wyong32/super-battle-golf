@@ -53,6 +53,7 @@ const nav = [
   { to: '/getting-started', label: 'Getting Started' },
   { to: '/wiki', label: 'Wiki' },
   { to: '/guides', label: 'Guides' },
+  { to: '/advanced', label: 'Advanced' },
   { to: '/mods', label: 'Mods' },
   { to: '/platforms', label: 'Platforms' },
   { to: '/support', label: 'Support' },

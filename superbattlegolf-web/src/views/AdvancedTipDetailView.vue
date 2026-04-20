@@ -5,20 +5,20 @@
         <nav class="atx-crumb" aria-label="Breadcrumb">
           <a :href="appHref('/')">Home</a>
           <span class="atx-crumb-sep" aria-hidden="true">/</span>
-          <a :href="appHref('/?focus=adv-heading')">Advanced techniques</a>
+          <a :href="appHref('/advanced')">Advanced techniques</a>
           <span class="atx-crumb-sep" aria-hidden="true">/</span>
           <span class="atx-crumb-here">{{ shortHeadline }}</span>
         </nav>
         <h1 class="atx-blocked-title">{{ tip.title }}</h1>
         <p class="atx-blocked-deck">
-          This feed is only on the home replay desk — there is no separate article page. Use the link below for the matching wiki entry, or go back to
-          <a :href="appHref('/?focus=adv-heading')">Advanced techniques</a>.
+          This topic has no long-form advanced article yet — use the link below for the matching wiki entry, or return to
+          <a :href="appHref('/advanced')">Advanced techniques</a>.
         </p>
         <div class="atx-blocked-actions">
           <a v-if="tip.linkOut" :href="appHref(tip.linkOut.href)" class="atx-blocked-btn atx-blocked-btn--primary">{{
             tip.linkOut.label
           }}</a>
-          <a :href="appHref('/?focus=adv-heading')" class="atx-blocked-btn">Home: replay desk</a>
+          <a :href="appHref('/advanced')" class="atx-blocked-btn">Advanced hub</a>
         </div>
       </div>
     </template>
@@ -29,7 +29,7 @@
           <nav class="atx-crumb" aria-label="Breadcrumb">
             <a :href="appHref('/')">Home</a>
             <span class="atx-crumb-sep" aria-hidden="true">/</span>
-            <a :href="appHref('/?focus=adv-heading')">Advanced techniques</a>
+            <a :href="appHref('/advanced')">Advanced techniques</a>
             <span class="atx-crumb-sep" aria-hidden="true">/</span>
             <span class="atx-crumb-here">{{ shortHeadline }}</span>
           </nav>
@@ -78,9 +78,9 @@
       </div>
 
       <div class="container atx-bottom">
-        <a :href="appHref('/?focus=adv-heading')" class="atx-backhome">
+        <a :href="appHref('/advanced')" class="atx-backhome">
           <span class="atx-backhome-arrow" aria-hidden="true">←</span>
-          Advanced techniques on home
+          All Advanced techniques
         </a>
         <a
           v-if="hasMatchingGuide"
@@ -93,8 +93,8 @@
     <div v-else class="container atx-miss">
       <h1 class="atx-miss-title">Advanced technique not found</h1>
       <p>
-        <a :href="appHref('/?focus=adv-heading')">Return to Advanced techniques</a>
-        on the home page.
+        <a :href="appHref('/advanced')">Return to Advanced techniques</a>
+        hub.
       </p>
     </div>
   </div>

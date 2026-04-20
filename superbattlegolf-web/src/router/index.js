@@ -50,7 +50,9 @@ const router = createRouter({
     },
     {
       path: '/advanced',
-      redirect: { path: '/', query: { focus: 'adv-heading' } },
+      name: 'advanced-tips-list',
+      meta: { seo: SEO.advancedTechniques },
+      component: () => import('../views/AdvancedTipsListView.vue'),
     },
     {
       path: '/advanced/:slug',

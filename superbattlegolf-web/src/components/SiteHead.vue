@@ -109,7 +109,7 @@ const headPayload = computed(() => {
     } else {
       title = `Super Battle Golf advanced technique — not found | ${SITE_NAME}`
       description =
-        'The requested technique page was not found. Open the home page and scroll to the tactics & replays section.'
+        'The requested technique page was not found. Browse Advanced techniques on the dedicated hub.'
     }
   } else if (route.name === 'mod-detail') {
     const slug = typeof route.params.slug === 'string' ? route.params.slug : ''

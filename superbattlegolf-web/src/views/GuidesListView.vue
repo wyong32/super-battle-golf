@@ -10,7 +10,7 @@
       <div class="container">
         <p v-if="!guides.length" class="gl-empty">
           No long-form guides here yet. For hole-in-one lines and other deep tactics, see the
-          <a :href="appHref('/?focus=adv-heading')">tactics &amp; replays block on the home page</a>.
+          <a :href="appHref('/advanced')">Advanced techniques hub</a>.
         </p>
         <div v-else class="gl-grid">
           <a

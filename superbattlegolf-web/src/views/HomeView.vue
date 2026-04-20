@@ -189,23 +189,22 @@
         <div class="trend-content">
           <h2 id="trend-heading" class="section-title">Featured Super Battle Golf Guides</h2>
           <div class="trend-list">
-            <article
+            <a
               v-for="(g, idx) in trendingGuides"
               :key="g.id"
-              class="trend-row"
+              :href="appHref(`/guides/${g.addressBar}`)"
+              class="trend-row trend-row--link"
               :class="'trend-row--tone' + (idx % 3)"
             >
-              <a :href="appHref(`/guides/${g.addressBar}`)" class="trend-media">
+              <div class="trend-media">
                 <img :src="g.imageSrc" :alt="g.imageAlt" width="200" height="200" loading="lazy" />
-              </a>
+              </div>
               <div class="trend-body">
-                <h3 class="trend-title">
-                  <a :href="appHref(`/guides/${g.addressBar}`)">{{ g.title }}</a>
-                </h3>
+                <h3 class="trend-title">{{ g.title }}</h3>
                 <p class="trend-desc">{{ g.description }}</p>
                 <time class="trend-date" :datetime="g.publishDate">{{ formatDate(g.publishDate) }}</time>
               </div>
-            </article>
+            </a>
           </div>
           <a :href="appHref('/guides')" class="text-link">View all guides →</a>
         </div>
@@ -346,13 +345,10 @@ const trendingGuides = (() => {
   return (home.length ? home : guides).slice(0, 3)
 })()
 
-/** 带 home 的条目才上转播条；列表奇偶控制 tone / muted */
 const advancedTipsHome = advancedTips.filter((t) => t.home)
 
-/** 转播桌板固定图标（与进阶主题一致） */
 const advSpotDeskIconSvg = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M17 5l-1.5 1.5M8.5 17.5L7 19M17 19l-1.5-1.5M8.5 6.5L7 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`
 
-/** 转播区底部按钮固定文案 */
 const advSpotCtaLabel = 'Full walkthrough'
 
 const quickCards = [
@@ -787,7 +783,7 @@ function onSearchSubmit() {
   color: var(--color-muted);
 }
 
-/* —— Advanced play: golf broadcast / replay booth (not a generic card grid) —— */
+/* —— Advanced play: golf broadcast / replay booth —— */
 .adv-section.adv-broadcast {
   position: relative;
   padding: 2.5rem 0 3.25rem;
@@ -799,7 +795,6 @@ function onSearchSubmit() {
   z-index: 1;
 }
 
-/* Film strip perforations */
 .adv-broadcast__sprocket {
   pointer-events: none;
   height: 13px;
@@ -951,7 +946,6 @@ function onSearchSubmit() {
   padding-top: 1rem;
 }
 
-/* Gaffer tape label */
 .adv-spot__tape {
   position: absolute;
   top: 0;
@@ -1085,7 +1079,6 @@ function onSearchSubmit() {
   text-shadow: 0 0 14px rgba(74, 222, 128, 0.45);
 }
 
-/* Shotcaller script desk */
 .adv-spot__desk {
   display: flex;
   flex-direction: column;
@@ -1314,6 +1307,17 @@ function onSearchSubmit() {
   transition: transform 0.2s ease;
 }
 
+.trend-row--link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.trend-row--link:focus-visible {
+  outline: 2px solid #fde047;
+  outline-offset: 3px;
+}
+
 .trend-row:hover {
   transform: translateY(-2px);
 }
@@ -1340,7 +1344,6 @@ function onSearchSubmit() {
 .trend-media {
   border-radius: 1rem;
   overflow: hidden;
-  cursor: pointer;
   border: 3px solid #0f172a;
   box-shadow: 4px 4px 0 rgba(253, 224, 71, 0.35);
 }
@@ -1354,19 +1357,15 @@ function onSearchSubmit() {
 
 .trend-title {
   font-size: 1.15rem;
-  margin-bottom: 0.35rem;
-}
-
-.trend-title a {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-heading);
+  font-weight: 800;
   color: #fffbeb;
-  text-decoration: none;
-  cursor: pointer;
   text-shadow: 0 2px 0 rgba(15, 23, 42, 0.35);
 }
 
-.trend-title a:hover {
+.trend-row--link:hover .trend-title {
   color: #fde047;
-  text-decoration: none;
 }
 
 .trend-desc {

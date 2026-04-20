@@ -15,116 +15,97 @@
  * - detailsHtml：正文 HTML（站内插图路径等）
  */
 export default [
-  // {
-  //   /** 列表与详情用唯一 ID */
-  //   id: 1,
-  //   /** 为 true 时进入首页「Featured guides」候选 */
-  //   isHome: true,
-  //   /** 文章主标题 */
-  //   title: 'Hole in One — Desert 1 (Showdown) & Coast 8 (Gauntlet)',
-  //   /** 副标题 / 摘要 */
-  //   description:
-  //     'Angles and full-power lines for two holes: Showdown and Gauntlet. Tee spawn matters on Gauntlet.',
-  //   /** 发布日期 */
-  //   publishDate: '2026-02-21',
-  //   /** URL 片段，与路由 /guides/:slug 一致 */
-  //   addressBar: 'hole-in-one-showdown-gauntlet',
-  //   /** 封面图 */
-  //   imageSrc: '/images/guides/guide01.jpg',
-  //   /** 封面 alt */
-  //   imageAlt: 'Super Battle Golf — hole-in-one on Showdown and Gauntlet',
-  //   /** 标签 */
-  //   tags: ['Hole in one', 'Achievements', 'Showdown', 'Gauntlet'],
-  //   /** 搜索引擎专用标题/描述/关键词（可省略则用 title/description） */
-  //   seo: {
-  //     title:
-  //       'Super Battle Golf Hole-in-One Guide: Showdown Desert 1 & Gauntlet Coast 8 Tips',
-  //     description:
-  //       'Desert 1 Showdown and Coast 8 Gauntlet hole-in-one tips for Super Battle Golf: aim, power, tee spawns, retries. Fan guide—verify in your Steam client.',
-  //     keywords:
-  //       'Super Battle Golf, hole in one, Showdown, Gauntlet, Desert 1, Coast 8, achievement, Steam',
-  //   },
-  //   /** 正文 HTML */
-  //   detailsHtml: `
-  //     <h3>Overview</h3>
-  //     <p>
-  //       Quick setups for a <strong>hole-in-one</strong> on <strong>Desert 1 — Showdown</strong> and <strong>Coast 8 — Gauntlet</strong>:
-  //       full-power shots with small aim adjustments. Patches can change feel — confirm in your client.
-  //     </p>
+  {
+    id: 1,
+    isHome: true,
+    title: 'Beginner Guide: Steam PC Essentials (Modes, Items & Etiquette)',
+    description:
+      'How Super Battle Golf plays on Steam at a glance: simultaneous rounds, angle and power basics, purple briefcase items, retries, and where to read deeper on this site.',
+    publishDate: '2026-04-20',
+    addressBar: 'beginner-guide-steam-pc',
+    imageSrc: '/images/guides/guides01.webp',
+    imageAlt: 'Super Battle Golf Guide — site logo over dark branding',
+    tags: ['Beginner', 'Steam', 'PC', 'Multiplayer', 'Items', 'Tips'],
+    seo: {
+      title: 'Super Battle Golf Beginner Guide (Steam PC) — Tips, Items & Modes',
+      description:
+        'Super Battle Golf beginner guide for Steam PC: simultaneous play, swing basics, ten pickup items, retries, voice etiquette, and links to our wiki. Unofficial—verify in your client.',
+      keywords:
+        'Super Battle Golf, beginner guide, Steam, PC, tips, multiplayer, items, how to play, Oro Interactive, Brimstone, wiki',
+    },
+    detailsHtml: `
+      <h3>Who this guide is for</h3>
+      <p>
+        You just installed <strong>Super Battle Golf</strong> on <strong>Steam (Windows PC)</strong>, finished the short onboarding, and want a clear mental model before jumping into public lobbies.
+        This article is an <strong>unofficial fan overview</strong> — always trust the in-game UI, patch notes, and
+        <a href="https://store.steampowered.com/app/4069520/" target="_blank" rel="noopener noreferrer">the official Steam store page</a>
+        over any third-party write-up.
+      </p>
 
-  //     <h3>Desert 1: Showdown</h3>
-  //     <figure class="guide-fig">
-  //       <img src="/images/guides/guide01-01.jpg" width="1024" height="576" loading="lazy" alt="Showdown — course context for the hole-in-one line" />
-  //       <figcaption>Showdown — course reference.</figcaption>
-  //     </figure>
+      <h3>What makes matches “battle golf”</h3>
+      <p>
+        Rounds are built around <strong>fast, simultaneous play</strong>: everyone is acting on the course at once, not waiting for a strict turn order like classic turn-based golf sims.
+        You still care about <strong>aim angle</strong>, <strong>shot power</strong>, and <strong>hazards</strong> (sand, water, trees, elevation), but you also read opponents — who is lining up a putt, who is charging an item, and where carts are cutting across the fairway.
+      </p>
+      <p>
+        Expect chaos in the best way: the goal is usually to <strong>finish the hole quickly and cleanly</strong> while others try to slow you down with items, collisions, and pressure putts.
+      </p>
 
-  //     <h3>Shot setup (Showdown)</h3>
-  //     <p><strong>Step 1 — Initial aim</strong><br />
-  //     Start at <strong>51°</strong>. Line up the flag so it sits in the <u>middle of your power bar</u>.</p>
-  //     <figure class="guide-fig">
-  //       <img src="/images/guides/guide01-02.jpg" width="1024" height="576" loading="lazy" alt="51 degrees: flag centered on power bar" />
-  //       <figcaption>Step 1 — flag centered on the power bar.</figcaption>
-  //     </figure>
+      <h3>Steam facts worth pinning (check for updates)</h3>
+      <ul>
+        <li><strong>Players:</strong> Public listings commonly advertise <strong>1–8 players</strong> online — party size and matchmaking rules can change; read the current Steam feature list.</li>
+        <li><strong>Courses:</strong> Marketing copy on Steam references <strong>27 holes</strong> across themed courses — use our <a href="/wiki/maps">maps &amp; holes wiki</a> for a hole-by-hole skim.</li>
+        <li><strong>Achievements:</strong> Steam tracks dozens of achievements; wording and hidden descriptions are easiest to confirm inside the Steam overlay or library panel.</li>
+      </ul>
 
-  //     <p><strong>Step 2 — Final adjustment</strong><br />
-  //     Once centered, nudge to <strong>52°</strong>.</p>
-  //     <figure class="guide-fig">
-  //       <img src="/images/guides/guide01-03.jpg" width="1024" height="576" loading="lazy" alt="52 degree final aim adjustment" />
-  //       <figcaption>Step 2 — 52° adjustment.</figcaption>
-  //     </figure>
+      <h3>Shot basics: angle, power, and course IQ</h3>
+      <p>
+        Before you chase trick shots, build three habits:
+      </p>
+      <ul>
+        <li><strong>Pre-shot routine:</strong> Decide whether you are playing for position, a safe par, or a risky birdie — then commit. Hesitation costs more in simultaneous golf than in solo practice.</li>
+        <li><strong>Power discipline:</strong> Full-send drives are fun, but sand and water punish greedy lines. When in doubt, favor the fat part of the fairway and live for the next item spawn.</li>
+        <li><strong>Camera awareness:</strong> Glance at minimap motion (carts, sprinting players) before releasing power — getting bumped mid-swing is part of the design space.</li>
+      </ul>
 
-  //     <p><strong>Step 3 — Power</strong><br />
-  //     Hit at <strong>100% power</strong>.</p>
-  //     <figure class="guide-fig">
-  //       <img src="/images/guides/guide01-04.jpg" width="1024" height="576" loading="lazy" alt="100 percent power shot" />
-  //       <figcaption>Step 3 — full power.</figcaption>
-  //     </figure>
+      <h3>Purple briefcases: items in plain language</h3>
+      <p>
+        Item pickups appear as <strong>purple briefcases</strong> on the course. Walking over them adds gear to your kit (community guides often mention holding <strong>up to three</strong> items — treat that as a rule of thumb until the in-game tooltip says otherwise after a patch).
+      </p>
+      <p>
+        Items include long-range disruption, mobility tools like <strong>spring boots</strong> and <strong>coffee</strong>, traps, shields, and rare round-swing effects such as the <strong>orbital laser</strong>.
+        For concise descriptions of all ten pickups, open our <a href="/wiki/weapons">weapons &amp; items wiki</a>; it mirrors how experienced players talk about loadouts without pretending to be patch notes.
+      </p>
 
-  //     <h3>Important notes (Showdown)</h3>
-  //     <ul>
-  //       <li>Some tee boxes can feel slightly inconsistent; retrying the same method usually converges.</li>
-  //       <li>Other combos that can ace: <strong>49° + 93% power</strong> and <strong>50° + 95–96% power</strong> — <strong>100% power</strong> is often easiest to repeat.</li>
-  //       <li><strong>Retry tip:</strong> Hold <strong>R</strong> to retry before the timer starts if you miss — it may not count for the hole-in-one achievement, but you can still finish ahead of other players.</li>
-  //     </ul>
+      <h3>Retries, pace, and learning faster</h3>
+      <p>
+        Many players use quick retries to rehearse a line before the hole timer advances — exact behavior for achievements and stats can differ by mode or patch, so if you are hunting a specific unlock, read the achievement text in Steam and test in a controlled lobby with friends.
+      </p>
+      <p>
+        If you are practicing advanced setups (for example hole-in-one lines on specific holes), see the <a href="/advanced">Advanced techniques</a> hub for a curated deep dive that complements this beginner overview.
+      </p>
 
-  //     <h3>Coast 8: Gauntlet</h3>
-  //     <figure class="guide-fig">
-  //       <img src="/images/guides/guide01-05.jpg" width="1024" height="576" loading="lazy" alt="Gauntlet tee box spawn reference" />
-  //       <figcaption>Gauntlet — spawn / tee context (<strong>far left</strong> on both tee boxes).</figcaption>
-  //     </figure>
+      <h3>Voice chat, sportsmanship, and crashes</h3>
+      <ul>
+        <li><strong>Voice:</strong> Built-in voice can be great for crews — mute individual players if comms get noisy, and avoid sharing personal info in public lobbies.</li>
+        <li><strong>Sportsmanship:</strong> Items are fair game, but targeted harassment is not. If someone is throwing, take notes and use Steam’s reporting tools if needed.</li>
+        <li><strong>Tech issues:</strong> Verify files, update GPU drivers, and reboot if you desync. Our <a href="/support">support hub</a> links general PC checks; for account bans or purchases, contact Steam Support, not this fan site.</li>
+      </ul>
 
-  //     <h3>Spawn requirement (Gauntlet)</h3>
-  //     <p>
-  //       Less consistent than Showdown overall. This line is most reliable from the <strong>far left</strong> side of <strong>both</strong> tee boxes; with that spawn, aim carefully for a high success rate.
-  //     </p>
+      <h3>Where to go next on this site</h3>
+      <ul>
+        <li><a href="/getting-started">Getting started hub</a> — install, first launch, and glossary-style pointers.</li>
+        <li><a href="/wiki/achievements">Steam achievements list</a> — names, blurbs, and global stat snapshots sourced from Valve’s public page.</li>
+        <li><a href="/wiki/cosmetics">Cosmetics &amp; unlock paths</a> — ties many hats and flair items to their achievements.</li>
+      </ul>
 
-  //     <h3>Shot setup (Gauntlet)</h3>
-  //     <p><strong>Step 1 — Aim alignment</strong><br />
-  //     Use the transparent white aim bar: place the <u>flag icon arrow in the center</u> of that bar.</p>
-  //     <figure class="guide-fig">
-  //       <img src="/images/guides/guide01-06.jpg" width="1024" height="576" loading="lazy" alt="Flag arrow centered on transparent aim bar" />
-  //       <figcaption>Step 1 — flag arrow centered on the aim bar.</figcaption>
-  //     </figure>
-
-  //     <p><strong>Step 2 — Angle</strong><br />
-  //     Set <strong>51°</strong>.</p>
-  //     <figure class="guide-fig">
-  //       <img src="/images/guides/guide01-07.jpg" width="1024" height="576" loading="lazy" alt="51 degree angle on Gauntlet" />
-  //       <figcaption>Step 2 — 51°.</figcaption>
-  //     </figure>
-
-  //     <p><strong>Step 3 — Power</strong><br />
-  //     Fire at <strong>100% power</strong> for repeatable shots.</p>
-  //     <figure class="guide-fig">
-  //       <img src="/images/guides/guide01-08.jpg" width="1024" height="576" loading="lazy" alt="Gauntlet full power shot" />
-  //       <figcaption>Step 3 — 100% power.</figcaption>
-  //     </figure>
-
-  //     <h3>Notes (Gauntlet)</h3>
-  //     <ul>
-  //       <li><strong>100% power + 51°</strong> and/or <strong>52°</strong> are called out as reliable when you can commit to full bar.</li>
-  //       <li>Variants that also work for some players: <strong>52°</strong> from certain tee positions, or <strong>51°</strong> with <strong>93–100% power</strong> from the left start — try what fits your spawn.</li>
-  //     </ul>
-  //   `,
-  // },
+      <h3>Editorial note</h3>
+      <p>
+        <em>
+          superbattlegolf.org is independent from Brimstone, Oro Interactive, and Valve.
+          If any detail here disagrees with the game after a patch, the live client wins — ping us via the contact page with a screenshot and we will update the article.
+        </em>
+      </p>
+    `,
+  },
 ]

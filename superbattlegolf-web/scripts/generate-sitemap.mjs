@@ -23,6 +23,7 @@ const BASE_ROUTES = [
   { path: '/wiki/achievements', priority: 0.9, changefreq: 'weekly' },
   { path: '/wiki/cosmetics', priority: 0.9, changefreq: 'weekly' },
   { path: '/guides', priority: 0.85, changefreq: 'weekly' },
+  { path: '/advanced', priority: 0.86, changefreq: 'weekly' },
   { path: '/mods', priority: 0.85, changefreq: 'weekly' },
   { path: '/platforms', priority: 0.75, changefreq: 'monthly' },
   { path: '/support', priority: 0.75, changefreq: 'monthly' },

@@ -20,6 +20,7 @@
               <li><a :href="appHref('/getting-started')">Getting Started</a></li>
               <li><a :href="appHref('/wiki')">Wiki</a></li>
               <li><a :href="appHref('/guides')">Guides</a></li>
+              <li><a :href="appHref('/advanced')">Advanced</a></li>
               <li><a :href="appHref('/mods')">Mods</a></li>
               <li><a :href="appHref('/platforms')">Platforms</a></li>
               <li><a :href="appHref('/support')">Support</a></li>
