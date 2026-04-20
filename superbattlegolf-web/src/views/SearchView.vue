@@ -52,22 +52,12 @@ import wikiCosmetics from '../data/wiki/cosmetics.js'
 const route = useRoute()
 const router = useRouter()
 
-/** Wiki hub rows (mirrors cards on /wiki — not loaded from a separate data file). */
-const wikiHubSearch = [
-  { id: 1, title: 'Weapons & items', to: '/wiki/weapons' },
-  { id: 2, title: 'Maps & courses', to: '/wiki/maps' },
-  { id: 3, title: 'Achievement cosmetics', to: '/wiki/cosmetics' },
-  { id: 4, title: 'Steam achievements', to: '/wiki/achievements' },
-]
-
-/** Flat wiki rows for title / key matching (hub, weapons, maps, achievements). */
+/** Flat wiki rows for title / key matching (hub shortcuts + data-driven lists). */
 const wikiSearchEntries = [
-  ...wikiHubSearch.map((s) => ({
-    kind: 'Wiki',
-    title: s.title,
-    key: `hub-${s.id}`,
-    to: s.to,
-  })),
+  { kind: 'Wiki', title: 'Weapons & items', key: 'hub-1', to: '/wiki/weapons' },
+  { kind: 'Wiki', title: 'Maps & courses', key: 'hub-2', to: '/wiki/maps' },
+  { kind: 'Wiki', title: 'Achievement cosmetics', key: 'hub-3', to: '/wiki/cosmetics' },
+  { kind: 'Wiki', title: 'Steam achievements', key: 'hub-4', to: '/wiki/achievements' },
   ...wikiWeapons.map((w) => ({
     kind: 'Wiki',
     title: `${w.name} (weapon)`,

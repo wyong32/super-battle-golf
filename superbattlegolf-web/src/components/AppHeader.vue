@@ -24,15 +24,39 @@
 
       <nav id="hdr-nav" class="hdr-nav" :class="{ 'hdr-nav--open': menuOpen }" aria-label="Primary">
         <ul class="hdr-list">
-          <li v-for="item in nav" :key="item.to">
+          <li>
+            <a :href="appHref('/')" class="hdr-pill" :class="{ 'hdr-pill--active': isActive('/') }" @click="closeMenu">Home</a>
+          </li>
+          <li>
             <a
-              :href="appHref(item.to)"
+              :href="appHref('/getting-started')"
               class="hdr-pill"
-              :class="{ 'hdr-pill--active': isActive(item.to) }"
+              :class="{ 'hdr-pill--active': isActive('/getting-started') }"
               @click="closeMenu"
-            >
-              {{ item.label }}
-            </a>
+            >Getting Started</a>
+          </li>
+          <li>
+            <a :href="appHref('/wiki')" class="hdr-pill" :class="{ 'hdr-pill--active': isActive('/wiki') }" @click="closeMenu">Wiki</a>
+          </li>
+          <li>
+            <a :href="appHref('/guides')" class="hdr-pill" :class="{ 'hdr-pill--active': isActive('/guides') }" @click="closeMenu">Guides</a>
+          </li>
+          <li>
+            <a :href="appHref('/advanced')" class="hdr-pill" :class="{ 'hdr-pill--active': isActive('/advanced') }" @click="closeMenu">Advanced</a>
+          </li>
+          <li>
+            <a :href="appHref('/mods')" class="hdr-pill" :class="{ 'hdr-pill--active': isActive('/mods') }" @click="closeMenu">Mods</a>
+          </li>
+          <li>
+            <a
+              :href="appHref('/platforms')"
+              class="hdr-pill"
+              :class="{ 'hdr-pill--active': isActive('/platforms') }"
+              @click="closeMenu"
+            >Platforms</a>
+          </li>
+          <li>
+            <a :href="appHref('/support')" class="hdr-pill" :class="{ 'hdr-pill--active': isActive('/support') }" @click="closeMenu">Support</a>
           </li>
         </ul>
       </nav>
@@ -47,17 +71,6 @@ import { appHref } from '../utils/appHref.js'
 
 const route = useRoute()
 const menuOpen = ref(false)
-
-const nav = [
-  { to: '/', label: 'Home' },
-  { to: '/getting-started', label: 'Getting Started' },
-  { to: '/wiki', label: 'Wiki' },
-  { to: '/guides', label: 'Guides' },
-  { to: '/advanced', label: 'Advanced' },
-  { to: '/mods', label: 'Mods' },
-  { to: '/platforms', label: 'Platforms' },
-  { to: '/support', label: 'Support' },
-]
 
 function isActive(path) {
   if (path === '/') return route.path === '/'

@@ -10,92 +10,100 @@
       <div class="container">
         <h2 class="wh-cards-title">Open a list</h2>
         <div class="wh-cards">
-          <a v-for="(s, i) in sections" :key="s.id" :href="appHref(s.to)" class="wh-card">
-            <span class="wh-card-num" aria-hidden="true">{{ String(i + 1).padStart(2, '0') }}</span>
+          <a :href="appHref('/wiki/weapons')" class="wh-card">
+            <span class="wh-card-num" aria-hidden="true">01</span>
             <div class="wh-card-body">
-            <span class="whi" aria-hidden="true">
-              <!-- weapons -->
-              <svg
-                v-if="s.iconId === 'weapons'"
-                class="whi-svg"
-                viewBox="0 0 32 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M6 26 L14 10 M10 28 L18 12"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                />
-                <path
-                  d="M26 6 L18 22 M22 4 L14 20"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  opacity="0.85"
-                />
-                <circle cx="16" cy="16" r="3" fill="currentColor" opacity="0.35" />
-              </svg>
-              <!-- maps -->
-              <svg
-                v-else-if="s.iconId === 'maps'"
-                class="whi-svg"
-                viewBox="0 0 32 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M10 28 V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                <path
-                  d="M10 10 L10 4 L22 8 L10 12 Z"
-                  fill="currentColor"
-                  opacity="0.25"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                />
-                <circle cx="10" cy="28" r="2" fill="currentColor" opacity="0.5" />
-              </svg>
-              <!-- cosmetics -->
-              <svg
-                v-else-if="s.iconId === 'cosmetics'"
-                class="whi-svg"
-                viewBox="0 0 32 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M8 14 Q16 6 24 14 L22 24 H10 Z"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linejoin="round"
-                  fill="currentColor"
-                  fill-opacity="0.12"
-                />
-                <path d="M16 4 L17 8 L21 9 L17 10 L16 14 L15 10 L11 9 L15 8 Z" fill="currentColor" opacity="0.55" />
-              </svg>
-              <!-- achievements -->
-              <svg
-                v-else-if="s.iconId === 'achievements'"
-                class="whi-svg"
-                viewBox="0 0 32 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="16" cy="12" r="6" stroke="currentColor" stroke-width="2" />
-                <path
-                  d="M10 18 L10 26 L16 22 L22 26 L22 18"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linejoin="round"
-                  fill="currentColor"
-                  fill-opacity="0.15"
-                />
-              </svg>
-            </span>
-            <span class="wh-card-kicker">{{ s.kicker }}</span>
-            <h3 class="wh-card-title">{{ s.title }}</h3>
-            <p class="wh-card-desc">{{ s.description }}</p>
-            <span class="wh-card-cta">Open list <span aria-hidden="true">→</span></span>
+              <span class="whi" aria-hidden="true">
+                <svg class="whi-svg" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 26 L14 10 M10 28 L18 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                  <path
+                    d="M26 6 L18 22 M22 4 L14 20"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    opacity="0.85"
+                  />
+                  <circle cx="16" cy="16" r="3" fill="currentColor" opacity="0.35" />
+                </svg>
+              </span>
+              <span class="wh-card-kicker">10 loadout tools</span>
+              <h3 class="wh-card-title">Weapons &amp; items</h3>
+              <p class="wh-card-desc">
+                Every offensive, defensive, and mobility pick-up described on the course — with tactics and patch disclaimers.
+              </p>
+              <span class="wh-card-cta">Open list <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+          <a :href="appHref('/wiki/maps')" class="wh-card">
+            <span class="wh-card-num" aria-hidden="true">02</span>
+            <div class="wh-card-body">
+              <span class="whi" aria-hidden="true">
+                <svg class="whi-svg" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10 28 V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                  <path
+                    d="M10 10 L10 4 L22 8 L10 12 Z"
+                    fill="currentColor"
+                    opacity="0.25"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  />
+                  <circle cx="10" cy="28" r="2" fill="currentColor" opacity="0.5" />
+                </svg>
+              </span>
+              <span class="wh-card-kicker">Biomes &amp; tactics</span>
+              <h3 class="wh-card-title">Maps &amp; courses</h3>
+              <p class="wh-card-desc">
+                Grasslands, Desert, Wildweather — notable named layouts and how to read each biome.
+              </p>
+              <span class="wh-card-cta">Open list <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+          <a :href="appHref('/wiki/cosmetics')" class="wh-card">
+            <span class="wh-card-num" aria-hidden="true">03</span>
+            <div class="wh-card-body">
+              <span class="whi" aria-hidden="true">
+                <svg class="whi-svg" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M8 14 Q16 6 24 14 L22 24 H10 Z"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linejoin="round"
+                    fill="currentColor"
+                    fill-opacity="0.12"
+                  />
+                  <path d="M16 4 L17 8 L21 9 L17 10 L16 14 L15 10 L11 9 L15 8 Z" fill="currentColor" opacity="0.55" />
+                </svg>
+              </span>
+              <span class="wh-card-kicker">64 wardrobe unlocks</span>
+              <h3 class="wh-card-title">Achievement cosmetics</h3>
+              <p class="wh-card-desc">
+                Heads, hats, eyewear, outfits, clubs, and golf balls tied to achievements — reference art plus unlock notes; no extra detail URLs.
+              </p>
+              <span class="wh-card-cta">Open list <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+          <a :href="appHref('/wiki/achievements')" class="wh-card">
+            <span class="wh-card-num" aria-hidden="true">04</span>
+            <div class="wh-card-body">
+              <span class="whi" aria-hidden="true">
+                <svg class="whi-svg" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="16" cy="12" r="6" stroke="currentColor" stroke-width="2" />
+                  <path
+                    d="M10 18 L10 26 L16 22 L22 26 L22 18"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linejoin="round"
+                    fill="currentColor"
+                    fill-opacity="0.15"
+                  />
+                </svg>
+              </span>
+              <span class="wh-card-kicker">34 milestones</span>
+              <h3 class="wh-card-title">Steam achievements</h3>
+              <p class="wh-card-desc">
+                Names, descriptions, and global completion data sourced from Valve’s Steam Community stats page.
+              </p>
+              <span class="wh-card-cta">Open list <span aria-hidden="true">→</span></span>
             </div>
           </a>
         </div>
@@ -237,45 +245,6 @@
 <script setup>
 import PageHero from '../../components/PageHero.vue'
 import { appHref } from '../../utils/appHref.js'
-
-const sections = [
-  {
-    id: 1,
-    iconId: 'weapons',
-    to: '/wiki/weapons',
-    title: 'Weapons & items',
-    kicker: '10 loadout tools',
-    description:
-      'Every offensive, defensive, and mobility pick-up described on the course — with tactics and patch disclaimers.',
-  },
-  {
-    id: 2,
-    iconId: 'maps',
-    to: '/wiki/maps',
-    title: 'Maps & courses',
-    kicker: 'Biomes & tactics',
-    description:
-      'Grasslands, Desert, Wildweather — notable named layouts and how to read each biome.',
-  },
-  {
-    id: 3,
-    iconId: 'cosmetics',
-    to: '/wiki/cosmetics',
-    title: 'Achievement cosmetics',
-    kicker: '64 wardrobe unlocks',
-    description:
-      'Heads, hats, eyewear, outfits, clubs, and golf balls tied to achievements — reference art plus unlock notes; no extra detail URLs.',
-  },
-  {
-    id: 4,
-    iconId: 'achievements',
-    to: '/wiki/achievements',
-    title: 'Steam achievements',
-    kicker: '34 milestones',
-    description:
-      'Names, descriptions, and global completion data sourced from Valve’s Steam Community stats page.',
-  },
-]
 </script>
 
 <style scoped>

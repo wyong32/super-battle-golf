@@ -77,16 +77,90 @@
             Super Battle Golf wiki, guides, mods, platforms, and support — one tap each.
           </p>
           <div class="quick-grid">
-            <a
-              v-for="card in quickCards"
-              :key="card.to"
-              :href="appHref(card.to)"
-              class="quick-card"
-              :class="'quick-card--v' + card.variant"
-            >
-              <span class="quick-icon" aria-hidden="true" v-html="card.icon" />
-              <span class="quick-label">{{ card.label }}</span>
-              <span class="quick-desc">{{ card.desc }}</span>
+            <a :href="appHref('/getting-started')" class="quick-card quick-card--v0">
+              <span class="quick-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" />
+                  <path d="M10 8.5l6 3.5-6 3.5v-7z" fill="currentColor" />
+                </svg>
+              </span>
+              <span class="quick-label">Getting Started</span>
+              <span class="quick-desc">Steam install, controls, first matches</span>
+            </a>
+            <a :href="appHref('/wiki')" class="quick-card quick-card--v1">
+              <span class="quick-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12 6.5C9.5 4 6 4 4 5.5V20c2-1.5 5.5-1.5 8 1"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M12 6.5c2.5-2.5 6-2.5 8-1V20c-2-1.5-5.5-1.5-8 1"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+              <span class="quick-label">Wiki</span>
+              <span class="quick-desc">Topic hub: items, maps, cosmetics, achievements</span>
+            </a>
+            <a :href="appHref('/guides')" class="quick-card quick-card--v2">
+              <span class="quick-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path d="M14 2v6h6M8 13h8M8 17h6M8 9h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </span>
+              <span class="quick-label">Guides</span>
+              <span class="quick-desc">Long-form articles when published</span>
+            </a>
+            <a :href="appHref('/mods')" class="quick-card quick-card--v3">
+              <span class="quick-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4 7h4M10 7h10M4 12h10M16 12h4M4 17h6M12 17h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                  <circle cx="7" cy="7" r="2" fill="currentColor" />
+                  <circle cx="14" cy="12" r="2" fill="currentColor" />
+                  <circle cx="9" cy="17" r="2" fill="currentColor" />
+                </svg>
+              </span>
+              <span class="quick-label">Mods</span>
+              <span class="quick-desc">Super Battle Golf mod and PC companion articles</span>
+            </a>
+            <a :href="appHref('/platforms')" class="quick-card quick-card--v4">
+              <span class="quick-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.5" />
+                  <path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </span>
+              <span class="quick-label">Platforms</span>
+              <span class="quick-desc">PC requirements, Steam, controllers</span>
+            </a>
+            <a :href="appHref('/support')" class="quick-card quick-card--v5">
+              <span class="quick-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 018.5-8.5 8.38 8.38 0 013.8.9z"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+              <span class="quick-label">Support</span>
+              <span class="quick-desc">Crashes, lag, official links</span>
             </a>
           </div>
         </div>
@@ -319,9 +393,35 @@
         <div class="faq-content">
           <h2 id="faq-heading" class="section-title">Frequently Asked Questions</h2>
           <dl class="faq-list">
-            <div v-for="item in faqItems" :key="item.q" class="faq-item">
-              <dt class="faq-q">{{ item.q }}</dt>
-              <dd class="faq-a">{{ item.a }}</dd>
+            <div class="faq-item">
+              <dt class="faq-q">Is Super Battle Golf traditional stroke-play golf?</dt>
+              <dd class="faq-a">
+                No. Steam markets it as simultaneous golf: everyone plays at the same time while swinging, shooting items, and sabotaging on the way to the hole.
+              </dd>
+            </div>
+            <div class="faq-item">
+              <dt class="faq-q">Is there an Xbox, PlayStation, or Switch version?</dt>
+              <dd class="faq-a">
+                Not on the Steam store or Brimstone press kit as of the documented PC launch — only Windows PC is listed. Rumors about console ports need an official Oro / Brimstone announcement.
+              </dd>
+            </div>
+            <div class="faq-item">
+              <dt class="faq-q">Where do the ten item descriptions come from?</dt>
+              <dd class="faq-a">
+                We summarize Destructoid’s item guide (credited to Oro art) and remind players that patches can rebalance gear — always trust in-game tooltips first.
+              </dd>
+            </div>
+            <div class="faq-item">
+              <dt class="faq-q">Does this site host official patch notes?</dt>
+              <dd class="faq-a">
+                We link to Valve’s Steam news hub for the game (app 4069520). Our articles may recap highlights but should not replace the original posts.
+              </dd>
+            </div>
+            <div class="faq-item">
+              <dt class="faq-q">Can I run it on Mac or a low-spec PC?</dt>
+              <dd class="faq-a">
+                There is no macOS SKU on Steam; Mac users rely on Windows installs or streaming. Minimum PC specs list GTX 950-class GPUs and 8 GB RAM — see Support for tuning ideas.
+              </dd>
             </div>
           </dl>
         </div>
@@ -350,74 +450,6 @@ const advancedTipsHome = advancedTips.filter((t) => t.home)
 const advSpotDeskIconSvg = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M17 5l-1.5 1.5M8.5 17.5L7 19M17 19l-1.5-1.5M8.5 6.5L7 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`
 
 const advSpotCtaLabel = 'Full walkthrough'
-
-const quickCards = [
-  {
-    to: '/getting-started',
-    label: 'Getting Started',
-    desc: 'Steam install, controls, first matches',
-    variant: 0,
-    icon: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M10 8.5l6 3.5-6 3.5v-7z" fill="currentColor"/></svg>`,
-  },
-  {
-    to: '/wiki',
-    label: 'Wiki',
-    desc: 'Topic hub: items, maps, cosmetics, achievements',
-    variant: 1,
-    icon: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 6.5C9.5 4 6 4 4 5.5V20c2-1.5 5.5-1.5 8 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 6.5c2.5-2.5 6-2.5 8-1V20c-2-1.5-5.5-1.5-8 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-  },
-  {
-    to: '/guides',
-    label: 'Guides',
-    desc: 'Long-form articles when published',
-    variant: 2,
-    icon: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 2v6h6M8 13h8M8 17h6M8 9h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
-  },
-  {
-    to: '/mods',
-    label: 'Mods',
-    desc: 'Super Battle Golf mod and PC companion articles',
-    variant: 3,
-    icon: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 7h4M10 7h10M4 12h10M16 12h4M4 17h6M12 17h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="7" cy="7" r="2" fill="currentColor"/><circle cx="14" cy="12" r="2" fill="currentColor"/><circle cx="9" cy="17" r="2" fill="currentColor"/></svg>`,
-  },
-  {
-    to: '/platforms',
-    label: 'Platforms',
-    desc: 'PC requirements, Steam, controllers',
-    variant: 4,
-    icon: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
-  },
-  {
-    to: '/support',
-    label: 'Support',
-    desc: 'Crashes, lag, official links',
-    variant: 5,
-    icon: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 018.5-8.5 8.38 8.38 0 013.8.9z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-  },
-]
-
-const faqItems = [
-  {
-    q: 'Is Super Battle Golf traditional stroke-play golf?',
-    a: 'No. Steam markets it as simultaneous golf: everyone plays at the same time while swinging, shooting items, and sabotaging on the way to the hole.',
-  },
-  {
-    q: 'Is there an Xbox, PlayStation, or Switch version?',
-    a: 'Not on the Steam store or Brimstone press kit as of the documented PC launch — only Windows PC is listed. Rumors about console ports need an official Oro / Brimstone announcement.',
-  },
-  {
-    q: 'Where do the ten item descriptions come from?',
-    a: 'We summarize Destructoid’s item guide (credited to Oro art) and remind players that patches can rebalance gear — always trust in-game tooltips first.',
-  },
-  {
-    q: 'Does this site host official patch notes?',
-    a: 'We link to Valve’s Steam news hub for the game (app 4069520). Our articles may recap highlights but should not replace the original posts.',
-  },
-  {
-    q: 'Can I run it on Mac or a low-spec PC?',
-    a: 'There is no macOS SKU on Steam; Mac users rely on Windows installs or streaming. Minimum PC specs list GTX 950-class GPUs and 8 GB RAM — see Support for tuning ideas.',
-  },
-]
 
 function formatDate(iso) {
   try {
