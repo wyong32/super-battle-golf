@@ -34,6 +34,8 @@ export default [
         'Coast 8 — Gauntlet: most reliable from the far-left side of both tee boxes; center the flag arrow on the transparent aim bar, use 51°, then 100% — try 52° or 93–100% if your spawn differs.',
         'Hold R to retry before the timer if you whiff a setup (may not count for some achievements — see the full walkthrough).',
       ],
+      /** 点击播放前显示的封面（LazyYoutubeEmbed）；不写则用顶层 imageSrc */
+      embedPosterSrc: '/images/advanced/guide01.jpg',
       embedSrc: 'https://www.youtube-nocookie.com/embed/OOtOCrwXH2s',
       embedTitle: 'Super Battle Golf — official launch trailer (reference pace and course chaos)',
     },
@@ -151,6 +153,7 @@ export default [
         'Tips: do not sprint at the mine; stay aiming before you interact; buried mines are not interactable; rushing usually blows it up.',
         'Reward: this achievement unlocks clothing items — see the wiki achievements list and in-game wardrobe after you earn it.',
       ],
+      embedPosterSrc: '/images/advanced/guide01-01.jpg',
       embedSrc: 'https://www.youtube-nocookie.com/embed/L_iZkO9J7e4',
       embedTitle: 'Super Battle Golf — gameplay reference (items & chaos on course)',
     },

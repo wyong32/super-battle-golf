@@ -110,14 +110,10 @@
           </div>
           <div class="gs-spotlight-video">
             <div class="gs-spotlight-ratio">
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/SgLRJTf6P_Q"
-                title="Super Battle Golf — Official Launch Trailer (IGN on YouTube)"
-                width="560"
-                height="315"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-                referrerpolicy="strict-origin-when-cross-origin"
+              <LazyYoutubeEmbed
+                embed-src="https://www.youtube-nocookie.com/embed/SgLRJTf6P_Q"
+                embed-title="Super Battle Golf — Official Launch Trailer (IGN on YouTube)"
+                poster-src="/images/bg.webp"
               />
             </div>
             <a
@@ -304,6 +300,7 @@
 </template>
 
 <script setup>
+import LazyYoutubeEmbed from '../components/LazyYoutubeEmbed.vue'
 import PageHero from '../components/PageHero.vue'
 import { appHref } from '../utils/appHref.js'
 import { scrollToSection, useScrollSpySections } from '../utils/sectionScroll.js'
@@ -384,14 +381,6 @@ function scrollTo(key) {
   overflow: hidden;
   background: #020617;
   border: 1px solid rgba(30, 41, 59, 0.6);
-}
-
-.gs-spotlight-ratio iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
 }
 
 .gs-spotlight-yt {

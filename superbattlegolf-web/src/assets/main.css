@@ -10,8 +10,9 @@
   --color-accent: #fb7185;
   --color-sun: #fde047;
   --color-orange: #fb923c;
-  --font-heading: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  /* 仅系统字体栈，无 @font-face / 无第三方字体 CDN */
+  --font-heading: system-ui, -apple-system, sans-serif;
+  --font-body: system-ui, -apple-system, sans-serif;
 }
 
 *,

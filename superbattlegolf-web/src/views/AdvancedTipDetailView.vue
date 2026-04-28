@@ -55,16 +55,10 @@
 
             <div class="atx-hero-media">
               <div v-if="heroMedia?.type === 'iframe'" class="atx-video-shell">
-                <iframe
-                  :src="heroMedia.src"
-                  :title="heroMedia.title"
-                  class="atx-video-frame"
-                  width="560"
-                  height="315"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  loading="eager"
+                <LazyYoutubeEmbed
+                  :embed-src="heroMedia.src"
+                  :embed-title="heroMedia.title"
+                  :poster-src="tip.home?.embedPosterSrc || tip.imageSrc || ''"
                 />
               </div>
               <figure v-else-if="heroMedia?.type === 'image'" class="atx-fallback-fig">
@@ -107,6 +101,7 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import advancedTips from '../data/advancedTips.js'
 import guides from '../data/guides.js'
+import LazyYoutubeEmbed from '../components/LazyYoutubeEmbed.vue'
 import { appHref } from '../utils/appHref.js'
 
 const route = useRoute()
@@ -360,14 +355,6 @@ function formatDate(iso) {
   background: #0f172a;
   border: 1px solid rgba(148, 163, 184, 0.22);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-}
-
-.atx-video-frame {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
 }
 
 .atx-fallback-fig {

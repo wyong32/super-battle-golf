@@ -30,16 +30,11 @@
               <span class="adv-spot__tape" aria-hidden="true">{{ topic.home.replayLabel }}</span>
               <div class="adv-spot__bezel">
                 <div class="adv-spot__crt" :class="{ 'adv-spot__crt--still': !topic.home.embedSrc }">
-                  <iframe
+                  <LazyYoutubeEmbed
                     v-if="topic.home.embedSrc"
-                    :src="topic.home.embedSrc"
-                    :title="topic.home.embedTitle"
-                    width="560"
-                    height="315"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    loading="lazy"
+                    :embed-src="topic.home.embedSrc"
+                    :embed-title="topic.home.embedTitle"
+                    :poster-src="topic.home.embedPosterSrc || topic.imageSrc || ''"
                   />
                   <img
                     v-else-if="topic.imageSrc"
@@ -98,6 +93,7 @@
 
 <script setup>
 import advancedTips from '../data/advancedTips.js'
+import LazyYoutubeEmbed from '../components/LazyYoutubeEmbed.vue'
 import PageHero from '../components/PageHero.vue'
 import { appHref } from '../utils/appHref.js'
 
@@ -301,14 +297,6 @@ const advSpotCtaLabel = 'Full walkthrough'
   opacity: 0.85;
 }
 
-.adv-spot__crt iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
 .adv-spot__crt-still {
   position: absolute;
   inset: 0;
@@ -331,7 +319,7 @@ const advSpotCtaLabel = 'Full walkthrough'
   bottom: 9px;
   left: 50%;
   transform: translateX(-50%);
-  font-family: ui-monospace, 'Cascadia Code', monospace;
+  font-family: ui-monospace, monospace;
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.22em;
