@@ -113,6 +113,8 @@
               <iframe
                 src="https://www.youtube-nocookie.com/embed/SgLRJTf6P_Q"
                 title="Super Battle Golf — Official Launch Trailer (IGN on YouTube)"
+                width="560"
+                height="315"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen
                 referrerpolicy="strict-origin-when-cross-origin"

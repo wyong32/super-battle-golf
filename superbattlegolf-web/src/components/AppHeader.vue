@@ -6,6 +6,8 @@
           src="/images/logo.png"
           alt="Super Battle Golf Guide"
           class="hdr-logo-image"
+          width="114"
+          height="83"
           loading="eager"
           decoding="async"
         >
@@ -128,7 +130,9 @@ watch(
 
 .hdr-logo-image {
   width: 65px;
-  height: 48px;
+  height: auto;
+  aspect-ratio: 242 / 178;
+  max-width: 65px;
   object-fit: contain;
   flex-shrink: 0;
 }

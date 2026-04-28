@@ -9,7 +9,9 @@
               src="/images/logo.png"
               alt="Super Battle Golf Guide"
               class="ftr-logo-image"
-              loading="eager"
+              width="114"
+              height="83"
+              loading="lazy"
               decoding="async"
             >
             <span class="ftr-logo-mark">Super Battle Golf</span>
@@ -104,13 +106,6 @@ const year = new Date().getFullYear()
   border: 3px dashed rgba(253, 224, 71, 0.5);
   background: rgba(21, 36, 58, 0.72);
   box-shadow: 0 6px 0 rgba(15, 23, 42, 0.5);
-  transform: rotate(-0.35deg);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .ftr-intro {
-    transform: none;
-  }
 }
 
 .ftr-desc {
@@ -138,7 +133,9 @@ const year = new Date().getFullYear()
 
 .ftr-logo-image {
   width: 65px;
-  height: 48px;
+  height: auto;
+  aspect-ratio: 242 / 178;
+  max-width: 65px;
   object-fit: contain;
   flex-shrink: 0;
 }

@@ -34,6 +34,8 @@
                     v-if="topic.home.embedSrc"
                     :src="topic.home.embedSrc"
                     :title="topic.home.embedTitle"
+                    width="560"
+                    height="315"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen
                     referrerpolicy="strict-origin-when-cross-origin"
