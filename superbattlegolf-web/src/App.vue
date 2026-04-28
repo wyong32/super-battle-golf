@@ -1,6 +1,5 @@
 <template>
   <div class="app-root">
-    <SiteHead />
     <AppHeader />
     <main id="main-content" class="app-main">
       <RouterView />
@@ -12,7 +11,6 @@
 <script setup>
 import AppHeader from './components/AppHeader.vue'
 import AppFooter from './components/AppFooter.vue'
-import SiteHead from './components/SiteHead.vue'
 </script>
 
 <style scoped>

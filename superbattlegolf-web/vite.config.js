@@ -20,10 +20,10 @@ function superbattlegolfSitemapPlugin() {
 }
 
 // https://vite.dev/config/
-export default defineConfig(({ command }) => ({
+export default defineConfig(({ mode }) => ({
   plugins: [
     vue(),
-    ...(command === 'serve' ? [vueDevTools()] : []),
+    ...(mode === 'development' ? [vueDevTools()] : []),
     superbattlegolfSitemapPlugin(),
   ],
   resolve: {

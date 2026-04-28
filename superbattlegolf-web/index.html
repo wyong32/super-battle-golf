@@ -35,7 +35,8 @@
     >
     <meta name="twitter:image" content="https://superbattlegolf.org/images/logo.png">
     <meta name="theme-color" content="#0c1524">
-    <link rel="preload" href="/images/bg.webp" as="image" type="image/webp">
+    <!-- 首页 Hero LCP；与 og:image 同源，避免仅 CSS 触发较晚请求（对齐 windrose-web） -->
+    <link rel="preload" href="/images/bg.webp" as="image" type="image/webp" fetchpriority="high" />
 
   <script>
     window.addEventListener('load', function () {

@@ -1,5 +1,7 @@
 import { nextTick } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
+import HomeView from '../views/HomeView.vue'
+import { applyRouteSeo } from '../seo/documentMeta.js'
 import { scrollToSection } from '../utils/sectionScroll.js'
 import { SEO } from './seoMeta.js'
 
@@ -10,7 +12,8 @@ const router = createRouter({
       path: '/',
       name: 'home',
       meta: { seo: SEO.home },
-      component: () => import('../views/HomeView.vue'),
+      /* 同步首页组件：避免 RouterView 等 chunk 时主区域空白、页脚顶上导致整块下移（CLS 飙升）；对齐 windrose-web */
+      component: HomeView,
     },
     {
       path: '/getting-started',
@@ -142,6 +145,7 @@ const router = createRouter({
 
 router.afterEach((to, _from, failure) => {
   if (failure) return
+  applyRouteSeo(to)
   const focus = to.query.focus
   if (typeof focus !== 'string' || !focus.length) return
 

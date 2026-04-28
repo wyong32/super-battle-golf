@@ -22,6 +22,7 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: var(--color-bg);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -38,30 +39,13 @@ body {
   line-height: 1.6;
   position: relative;
   isolation: isolate;
-}
-
-/* 全站背景图 + 深色渐变罩层，保证正文可读 */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  background: url('/images/bg.webp') center center / cover no-repeat;
   background-color: var(--color-bg);
-}
-
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  /* 罩层偏淡，背景图更透出来；若正文对比不足可略调高 alpha */
-  background: linear-gradient(
+  /* bg.webp 仅用于首页 Hero（见 HomeView），全站用纯色 + 渐变减轻带宽与与 JS/CSS 抢优先级 */
+  background-image: linear-gradient(
     165deg,
-    rgba(10, 18, 32, 0.58) 0%,
-    rgba(12, 24, 36, 0.5) 35%,
-    rgba(18, 12, 40, 0.48) 100%
+    rgba(10, 18, 32, 0.98) 0%,
+    rgba(12, 24, 36, 0.96) 35%,
+    rgba(18, 12, 40, 0.95) 100%
   );
 }
 

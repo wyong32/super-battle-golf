@@ -476,7 +476,33 @@ function onSearchSubmit() {
 }
 
 .hero-section {
+  position: relative;
   padding: 2.5rem 0 2.25rem;
+  overflow: hidden;
+  background-color: var(--color-bg);
+  background-image: url('/images/bg.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    165deg,
+    rgba(10, 18, 32, 0.58) 0%,
+    rgba(12, 24, 36, 0.5) 35%,
+    rgba(18, 12, 40, 0.48) 100%
+  );
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-panel {
