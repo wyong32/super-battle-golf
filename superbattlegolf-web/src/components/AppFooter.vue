@@ -5,7 +5,13 @@
       <div class="ftr-row">
         <div class="ftr-intro">
           <a :href="appHref('/')" class="ftr-brand" aria-label="Super Battle Golf Guide home">
-            <img src="/images/logo.png" alt="Super Battle Golf Guide" class="ftr-logo-image">
+            <img
+              src="/images/logo.png"
+              alt="Super Battle Golf Guide"
+              class="ftr-logo-image"
+              loading="eager"
+              decoding="async"
+            >
             <span class="ftr-logo-mark">Super Battle Golf</span>
           </a>
           <p class="ftr-desc">
@@ -132,8 +138,9 @@ const year = new Date().getFullYear()
 
 .ftr-logo-image {
   width: 65px;
-  height: auto;
+  height: 48px;
   object-fit: contain;
+  flex-shrink: 0;
 }
 
 .ftr-logo-mark {

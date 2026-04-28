@@ -2,7 +2,13 @@
   <header class="hdr" role="banner">
     <div class="container hdr-inner">
       <a :href="appHref('/')" class="hdr-logo" aria-label="Super Battle Golf Guide home">
-        <img src="/images/logo.png" alt="Super Battle Golf Guide" class="hdr-logo-image">
+        <img
+          src="/images/logo.png"
+          alt="Super Battle Golf Guide"
+          class="hdr-logo-image"
+          loading="eager"
+          decoding="async"
+        >
         <span class="hdr-logo-mark">Super Battle Golf</span>
       </a>
 
@@ -95,8 +101,7 @@ watch(
   top: 0;
   z-index: 50;
   border-bottom: 3px dashed rgba(253, 224, 71, 0.45);
-  background: rgba(12, 21, 36, 0.88);
-  backdrop-filter: blur(14px);
+  background: rgba(12, 21, 36, 0.96);
 }
 
 .hdr-inner {
@@ -123,8 +128,9 @@ watch(
 
 .hdr-logo-image {
   width: 65px;
-  height: auto;
+  height: 48px;
   object-fit: contain;
+  flex-shrink: 0;
 }
 
 @media (min-width: 768px) {
