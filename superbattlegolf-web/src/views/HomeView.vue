@@ -210,7 +210,10 @@
                     v-else-if="topic.imageSrc"
                     :src="topic.imageSrc"
                     :alt="topic.imageAlt || ''"
+                    width="640"
+                    height="360"
                     loading="lazy"
+                    decoding="async"
                     class="adv-spot__crt-still"
                   />
                 </div>
