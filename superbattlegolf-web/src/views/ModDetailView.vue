@@ -158,6 +158,44 @@ function formatDate(iso) {
   color: #f1f5f9;
 }
 
+.mod-prose :deep(h4) {
+  font-size: 0.98rem;
+  margin: 0.85rem 0 0.35rem;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: #e2e8f0;
+}
+
+.mod-prose :deep(code) {
+  font-size: 0.84em;
+  padding: 0.12rem 0.35rem;
+  border-radius: 0.3rem;
+  background: rgba(15, 23, 42, 0.75);
+  color: #fde68a;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.mod-prose :deep(table) {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.mod-prose :deep(th),
+.mod-prose :deep(td) {
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  padding: 0.45rem 0.55rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.mod-prose :deep(th) {
+  background: rgba(15, 23, 42, 0.55);
+  color: #f1f5f9;
+  font-weight: 800;
+}
+
 .mod-prose :deep(ul) {
   color: var(--color-muted);
   margin-bottom: 0.9rem;
